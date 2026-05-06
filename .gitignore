@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+#ignore vendor files
+src/staticfiles/vendors/flowbite.min.css
+src/staticfiles/vendors/flowbite.min.js
+src/staticfiles/vendors/flowbite.min.js.map
+
+local-cdn/
 # Distribution / packaging
 .Python
 build/
