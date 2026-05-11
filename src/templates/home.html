@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
+
+{% block head_title %}{{ page_title }} - {{ block.super }}{% endblock head_title %}
+
+
 {% block content %}
+<h1 class="text-lg font-medium">{{ page_title }}</h1>
+<p>Hello again!</p>
 
-<a href="#" class="bg-neutral-primary-soft block max-w-sm mt-20 p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Noteworthy technology acquisitions 2021</h5>
-    <p class="text-body">Here are the biggest technology acquisitions of 2025 so far, in reverse chronological order.</p>
-    <h1> Hello world </H1>
-<p>Page Visits: {{ queryset }} </p>
-<p>Total Page Visits: {{ total_visit_count }} </p>
-</a>
-
+<p>Page visits: {{ page_visit_count }}</p>
+<p>percent: {{ percent }}</p>
+<p>Total visits: {{ total_visit_count }}</p>
 
 
 {% endblock content %}
