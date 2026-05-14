@@ -44,7 +44,7 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = str(os.environ.get("DJANGO_DEBUG")).lower() == "true"
 DEBUG = config("DJANGO_DEBUG", cast=bool)
-
+BASE_URL = config("BASE_URL", default=None)
 ALLOWED_HOSTS = [".railway.app"]
 if DEBUG:
     ALLOWED_HOSTS += ["127.0.0.1", "localhost"]
@@ -59,7 +59,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "commando",
+    "checkouts",
+    "customers",
+    "landing",
     "visits",
+    "profiles",
+    "subscriptions",
     "allauth_ui",
     "allauth",
     "allauth.account",
@@ -144,8 +149,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 # ALlauth Config
 LOGIN_REDIRECT_URL = "/"
-ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_LOGIN_METHODS = {"email"}
+ACCOUNT_SIGNUP_FIELDS = ["email*", "username", "password1*", "password2*"]
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "[Saas] "
 
